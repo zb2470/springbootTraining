@@ -1,8 +1,12 @@
 package com.agentpay.repository;
 
-import com.agentpay.domain.ChannelEntity;
+import com.agentpay.domain.entity.ChannelEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ChannelEntityRepository extends JpaRepository<ChannelEntity,Integer> {
+import java.util.List;
+
+public interface ChannelEntityRepository extends JpaRepository<ChannelEntity, Integer> {
+
+    public List<ChannelEntity> findBychannelNo(String channelNo);
 
 }
