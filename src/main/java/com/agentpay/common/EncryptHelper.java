@@ -103,7 +103,7 @@ public class EncryptHelper {
     }
 
     /**
-     * 解密
+     * 解密decode
      * 解密过程：
      * 1.同加密1-4步
      * 2.将加密后的字符串反纺成byte[]数组
