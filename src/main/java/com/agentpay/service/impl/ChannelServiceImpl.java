@@ -8,12 +8,14 @@ import com.agentpay.domain.channeldto.send.ChannelHeadSend;
 import com.agentpay.domain.channeldto.send.ChannelSend;
 import com.agentpay.domain.channeldto.send.body.ChannelPaySend;
 import com.agentpay.enums.OrderStatusEnum;
+import com.agentpay.enums.PayStatusEnum;
 import com.agentpay.repository.ChannelEntityRepository;
 import com.agentpay.repository.OrderEntityRepository;
 import com.agentpay.service.ChannelService;
 import com.agentpay.unitl.ChannelResultUnitl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,6 +31,7 @@ public class ChannelServiceImpl implements ChannelService {
     /*
     * 渠道代付
     * */
+    @Transactional
     public ChannelResult pay(ChannelSend channelSend) {
         ChannelHeadSend channelHeadSend=channelSend.headSend;
         ChannelPaySend channelPaySend= (ChannelPaySend) channelSend.getBody();
@@ -54,13 +57,17 @@ public class ChannelServiceImpl implements ChannelService {
         orderEntity.setChannelOrderNo(channelPaySend.getOrderNo());
         orderEntity.setChannelNo(channelHeadSend.getChannelNo());
         orderEntity.setOrderNo(orderNo);
+        orderEntity.setPayStatus(PayStatusEnum.WAIT);
 
         orderEntity= orderEntityRepository.save(orderEntity);
+
 
         if(orderEntity.getId()<=0)
         {
             return ChannelResultUnitl.CreateChannelResult(OrderStatusEnum.FAIL);
         }
+
+
 
         return ChannelResultUnitl.CreateChannelResult(OrderStatusEnum.SUCCESS);
     }

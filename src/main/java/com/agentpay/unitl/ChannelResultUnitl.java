@@ -19,6 +19,6 @@ public class ChannelResultUnitl {
     }
 
     public static ChannelResult CreateChannelResult(OrderStatusEnum orderStatusEnum) {
-        return CreateChannelResult(orderStatusEnum);
+        return CreateChannelResult(orderStatusEnum,null);
     }
 }

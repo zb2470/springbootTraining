@@ -1,5 +1,7 @@
 package com.agentpay.domain.entity;
 
+import com.agentpay.enums.PayStatusEnum;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,6 +24,8 @@ public class OrderEntity {
     private String accNo;
 
     private String Name;
+
+    private PayStatusEnum payStatus;
 
     private Integer statusCode;
 
@@ -120,5 +124,13 @@ public class OrderEntity {
 
     public void setDelete(boolean delete) {
         isDelete = delete;
+    }
+
+    public PayStatusEnum getPayStatus() {
+        return payStatus;
+    }
+
+    public void setPayStatus(PayStatusEnum payStatus) {
+        this.payStatus = payStatus;
     }
 }
