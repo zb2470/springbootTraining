@@ -61,7 +61,7 @@ public class BankServiceImpl implements  BankService {
         String headJson=JsonHelper.objToJson(headData);
         String bodyJson=JsonHelper.objToJson(pay);
 
-        String autograph=EncryptHelper.aesEncrypt(headJson+bodyJson,channelEntity.getAesKey(),channelEntity.getAesIv());
+        String autograph=EncryptHelper.aesEncode(headJson+bodyJson);
 
         send.setT(pay);
         send.setHeadData(headData);
