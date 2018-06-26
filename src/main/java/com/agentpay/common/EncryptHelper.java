@@ -18,6 +18,7 @@ import static com.sun.javafx.font.FontResource.SALT;
 public class EncryptHelper {
 
     private static final String ENCODE_AES = "springbootTraining";
+
     //md5
     public static String Md5Util(String str) {
         str = str + SALT;
@@ -102,7 +103,7 @@ public class EncryptHelper {
     }
 
     /**
-     * 解密
+     * 解密decode
      * 解密过程：
      * 1.同加密1-4步
      * 2.将加密后的字符串反纺成byte[]数组
