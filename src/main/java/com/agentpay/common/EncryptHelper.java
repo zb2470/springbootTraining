@@ -7,7 +7,7 @@ import static com.sun.javafx.font.FontResource.SALT;
 
 public class EncryptHelper {
 
-    private static final String ENCODE_AES = "zheng";
+    private static final String ENCODE_AES = "springbootTraining";
     //md5
     public static String Md5Util(String str) {
         str = str + SALT;
