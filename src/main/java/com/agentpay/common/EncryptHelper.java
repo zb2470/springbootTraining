@@ -6,6 +6,8 @@ import java.security.MessageDigest;
 import static com.sun.javafx.font.FontResource.SALT;
 
 public class EncryptHelper {
+
+    private static final String ENCODE_AES = "zheng";
     //md5
     public static String Md5Util(String str) {
         str = str + SALT;
